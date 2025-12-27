@@ -1,10 +1,8 @@
 # Spring Apps
 reference: Spring in Action
 ## chap 0
-1. mvnw and mvnw.cmd—These are Maven wrapper scripts. You can use these scripts
-to build your project, even if you don’t have Maven installed on your machine.
-2. Spring Boot starter dependencies are spe-
-cial in that they typically don’t have any library code themselves but instead transi-
+1. mvnw and mvnw.cmd—These are Maven wrapper scripts. You can use these scripts to build your project, even if you don’t have Maven installed on your machine.
+2. Spring Boot starter dependencies are special in that they typically don’t have any library code themselves but instead transi-
 tively pull in other libraries. think of your dependencies in terms of what capabilities they
 provide, rather than their library names.
 3. You’re freed from the burden of worrying about library versions.
@@ -32,7 +30,31 @@ provide, rather than their library names.
     12. Spring Cloud -- microservices etc
     13. Spring Native like GraalVM
 
-
+## Chap 2
+    0. highlights: Presenting model data in the browser, Processing and validating form input, Choosing a view template library
+    1. Controller fetch an dproecess data. View render that into html that will be displayed in the browser
+    2. An application’s domain is the subject area that it addresses—the ideas and concepts that influence the understanding of the application.
+       . In our taco design. case, objects are taco design, ingredients, customers, taco orders
+    3. @Slf4j, is a Lombok-provided annotation that, at compilation time, will automatically generate an SLF4J Logger static property in the class.
+    4. The @RequestMapping annotation, when applied at the class level, specifies the kind of requests that this controller handles.
+    5. @SessionAttributes: TacoOrder object that is put into the model a little later in the class should be maintained in session.
+    Spring MVC request-mapping annotations
+    6. @ModelAttribute has two uses in Spring MVC:
+        a. Method-level (with name, creates model attribute)
+        b. Method-level (without name )(populates model before handler methods). ie Executes before any request handler (@GetMapping, @PostMapping, etc.). It Adds common data needed by multiple views. In my case, adds ingredients filtered by type to the model
+    7. Spring MVC request-mapping annotations:
+        @RequestMapping -> General-purpose request handling
+        @GetMapping  -> Handles HTTP GET requests
+        @PostMapping  -> Handles HTTP POST requests
+        @PutMapping  -> Handles HTTP PUT requests
+        @DeleteMapping  -> Handles HTTP DELETE requests
+        @PatchMapping  -> Handles HTTP PATCH requests
+    8.Model is an object that ferries data between a controller and whatever view is charged with rendering that data.Ultimately, data that’s placed in Model attributes is copied into the servlet request attributes, where the view can find them and use them to render a page in the user’s browser.
+    9. thymeleaf templates html plus additional tags which guide a template in rendering reequest data. example:
+        a. <p th:text="${message}">placeholder message</p>. When the template is rendered into HTML, the body of the <p> element will be replaced with the value of the servlet request attribute whose key is "message".
+        b. th:each, that iterates over a collection of elements, rendering the HTML once for each item in the collection.
+    10. "redirect:/orders/current" means browser should be directed to the relative patj /orders/current
+    
 
 
 
