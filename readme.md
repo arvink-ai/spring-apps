@@ -54,7 +54,15 @@ provide, rather than their library names.
         a. <p th:text="${message}">placeholder message</p>. When the template is rendered into HTML, the body of the <p> element will be replaced with the value of the servlet request attribute whose key is "message".
         b. th:each, that iterates over a collection of elements, rendering the HTML once for each item in the collection.
     10. "redirect:/orders/current" means browser should be directed to the relative patj /orders/current
-    
+    11. 2.3 Validating form input using JavaBean Validation API.
+        a. @CreditCardNumber. This annotation declares that the property’s value must be a valid credit card number that passes the Luhn algorithm check.
+        b. there’s no ready-made annotation for validating the MM/YY format of the ccExpiration property.
+        c. Use @Valid annotation after defining validation rules on jeava beans ie TacoOrder etc.
+    12. popular template engines: some are thymeleaf, musctahce, freemarker.
+    13. 2.5.1. Caching templates: engines parse templates once by default and cache thme. This is good for prod but not for dev.
+        disable caching: thymeleaf: spring.thymeleaf.cache, mustache: spring.mustache.cache
+
+
 
 
 
